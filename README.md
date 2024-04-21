@@ -1,44 +1,56 @@
-#Rust-webserver
+Rust-webserver
 Setting up Rust on Fedora
 This guide will walk you through the process of setting up Rust programming language on Fedora.
 
-##Step 1: Install Rust
+Step 1: Install Rust
 Open a terminal window.
 Update your package index:
+console
 
 
-###sudo dnf update
+
+$ sudo dnf update
 Install Rust using rustup, which is the official Rust installer:
+console
 
 
-###curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 Follow the prompts to complete the installation.
 Once the installation is complete, you'll be prompted to run the following command to add Rust to your system PATH:
+console
 
-###source $HOME/.cargo/env
 
-##Step 2: Verify Rust Installation
+
+$ source $HOME/.cargo/env
+Step 2: Verify Rust Installation
 To verify that Rust has been installed correctly, you can run:
+console
 
 
-###rustc --version
+
+$ rustc --version
 You can also check the version of Cargo, the Rust package manager, by running:
+console
 
 
-###cargo --version
-##Step 3: Update Rust and Cargo
+
+$ cargo --version
+Step 3: Update Rust and Cargo
 To keep Rust and Cargo up to date, you can use rustup:
 
+console
 
 
-###rustup update
+
+$ rustup update
 Installing Dependencies for Rust Projects on Fedora
 This guide will walk you through the process of installing dependencies for your Rust projects on Fedora using Cargo, the Rust package manager.
 
-#Adding Dependencies to Cargo.toml
+Adding Dependencies to Cargo.toml
 Before installing dependencies, you need to specify them in your project's Cargo.toml file. Open the Cargo.toml file located in your project's root directory and add your dependencies under the [dependencies] section. For example:
 
-'''toml
+toml
 
 
 
@@ -66,26 +78,32 @@ This adds two dependencies: serde and serde_json.
 Using Cargo to Install Dependencies
 Once you've specified your dependencies in the Cargo.toml file, navigate to your project directory in the terminal and run the following command to install them:
 
+console
 
 
-##cargo build
+
+$ cargo build
 This command will fetch and build all the dependencies listed in your Cargo.toml file. If you only want to download the dependencies without building your project, you can use:
 
+console
 
 
-##cargo fetch
+
+$ cargo fetch
 Checking Dependencies
 After running the appropriate cargo command, Cargo will download and install the specified dependencies. You can verify that the dependencies are installed correctly by checking the Cargo.lock file and the target directory in your project's root directory.
 
-#Running the Web Server
+Running the Web Server
 To run the web server, use the following command:
 
+console
 
 
-##cargo run --package http-server --bin http-server 127.0.0.1:8080
+
+$ cargo run --package http-server --bin http-server 127.0.0.1:8080
 Additional Resources
 Rust Programming Language Official Website
 Rust Documentation
 Rust By Example
 The Cargo Book (Cargo Guide)
-
+Rust Cookbook
