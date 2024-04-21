@@ -1,31 +1,50 @@
-# Rust-webserver
-
-# Setting up Rust on Fedora
-
+#Rust-webserver
+Setting up Rust on Fedora
 This guide will walk you through the process of setting up Rust programming language on Fedora.
 
-## Step 1: Install Rust
-
-1. Open a terminal window.
-
-2. Update your package index:
+##Step 1: Install Rust
+Open a terminal window.
+Update your package index:
 
 
-sudo dnf update
+###sudo dnf update
+Install Rust using rustup, which is the official Rust installer:
 
 
-3. Install Rust using `rustup`, which is the official Rust installer:
-
+###curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 Follow the prompts to complete the installation.
+Once the installation is complete, you'll be prompted to run the following command to add Rust to your system PATH:
 
-4. Once the installation is complete, you'll be prompted to run the following command to add Rust to your system PATH:
+###source $HOME/.cargo/env
 
-source $HOME/.cargo/env
+##Step 2: Verify Rust Installation
+To verify that Rust has been installed correctly, you can run:
 
 
-## Step 2: Verify Rust Installation
-```toml
-[dependencies]
+###rustc --version
+You can also check the version of Cargo, the Rust package manager, by running:
+
+
+###cargo --version
+##Step 3: Update Rust and Cargo
+To keep Rust and Cargo up to date, you can use rustup:
+
+
+
+###rustup update
+Installing Dependencies for Rust Projects on Fedora
+This guide will walk you through the process of installing dependencies for your Rust projects on Fedora using Cargo, the Rust package manager.
+
+#Adding Dependencies to Cargo.toml
+Before installing dependencies, you need to specify them in your project's Cargo.toml file. Open the Cargo.toml file located in your project's root directory and add your dependencies under the [dependencies] section. For example:
+
+'''toml
+
+
+
+[
+dependencies
+]
 regex = "1"
 http = "0.2.3"
 mime = "0.3"
@@ -42,74 +61,31 @@ env_logger = "0.9"
 mime_guess = "2.0.4"
 percent-encoding = "2.2.0"
 lazy_static = "1.4.0"
-
-This will adds two dependencies: serde and serde_json.
-
+This adds two dependencies: serde and serde_json.
 
 Using Cargo to Install Dependencies
 Once you've specified your dependencies in the Cargo.toml file, navigate to your project directory in the terminal and run the following command to install them:
 
-cargo build
 
 
+##cargo build
 This command will fetch and build all the dependencies listed in your Cargo.toml file. If you only want to download the dependencies without building your project, you can use:
 
-cargo fetch
 
+
+##cargo fetch
 Checking Dependencies
 After running the appropriate cargo command, Cargo will download and install the specified dependencies. You can verify that the dependencies are installed correctly by checking the Cargo.lock file and the target directory in your project's root directory.
 
+#Running the Web Server
+To run the web server, use the following command:
 
 
 
-1. To verify that Rust has been installed correctly, you can run:
-
-
-rustc --version
-
-
-2. You can also check the version of Cargo, the Rust package manager, by running:
-
-
-cargo --version
-
-
-## Step 3: Update Rust and Cargo
-
-To keep Rust and Cargo up to date, you can use `rustup`:
-
-
-
-rustup update
-
-
-## Additional Resources
-
-- [Rust Programming Language Official Website](https://www.rust-lang.org/)
-- [Rust Documentation](https://doc.rust-lang.org/)
-- [Rust By Example](https://doc.rust-lang.org/stable/rust-by-example/)
-- [The Cargo Book (Cargo Guide)](https://doc.rust-lang.org/cargo/)
-- [Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/)
-
-Install Dependencies:
-
-# Installing Dependencies for Rust Projects on Fedora
-
-This guide will walk you through the process of installing dependencies for your Rust projects on Fedora using Cargo, the Rust package manager.
-
-## Adding Dependencies to `Cargo.toml`
-
-Before installing dependencies, you need to specify them in your project's `Cargo.toml` file. Open the `Cargo.toml` file located in your project's root directory and add your dependencies under the `[dependencies]` section. For example:
-
-```toml
-[dependencies]
-serde = "1.0"
-serde_json = "1.0"
-
-
-Runnig code ->>
-
-
-
-
+##cargo run --package http-server --bin http-server 127.0.0.1:8080
+Additional Resources
+Rust Programming Language Official Website
+Rust Documentation
+Rust By Example
+The Cargo Book (Cargo Guide)
 
