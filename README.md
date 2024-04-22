@@ -100,7 +100,7 @@ console
 
 
 
-$ cargo run --package http-server --bin http-server 127.0.0.1:8080
+$ cargo run --package http-server --bin http-server 127.0.0.1:5666
 Additional Resources
 Rust Programming Language Official Website
 Rust Documentation
